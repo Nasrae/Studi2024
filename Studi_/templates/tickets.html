@@ -1,0 +1,13 @@
+{% autoescape off %}
+Bonjour {{ user }},
+
+Ci-dessous vos/votre ticket(s) ! Merci d'avoir passé commande.
+Au plaisir de vous revoir !
+
+Ticket N°: 
+Nom : {{ first_name }}
+Prénom : {{ last_name }}
+Email : {{ email }}
+Authentification : {{ authentification }}
+
+{% endautoescape %}
