@@ -83,7 +83,7 @@ DATABASES = {
         'DRIVER': 'pymysql',
         'NAME': 'jo_app',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'Jo2024@',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     },

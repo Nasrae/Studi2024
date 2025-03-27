@@ -131,22 +131,26 @@ def create_checkout_session(request):
 
 
 def success(request):
-    to_email = request.user.email
-    username = request.user.username
-    mail_subject = 'Tickets JO 2024'
-    message = render_to_string('tickets.html', {
-        'user': username,
-        'first_name': request.user.first_name,
-        'last_name': request.user.last_name,
-        'email': to_email,
-        'authentification': request.user.pk,
-    })
-    email = EmailMessage(mail_subject, message, to=[to_email])
-    if email.send():
-        success(request)
+    if request.user.is_authenticated:
+        email = request.user.email
+        mail_subject = 'Tickets JO 2024'
+        message = render_to_string('tickets.html', {
+            'user': request.user.username,
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'email': email,
+            'authentification': request.user.pk,
+            'protocol': 'https' if request.is_secure() else 'http'
+        })
+        email = EmailMessage(mail_subject, message, to=[email])
+        if email.send():
+            messages.success(request, f'Félicitation votre achat à été conclut!')
+        else:
+            messages.error(request, f'Un problème est survenu lors de l\'envoi à : {email}, contrôler que ce'
+                                    f' dernier à bien été renseigné lors de la saisie.')
     else:
-        message.error(request, '')
-    return render(request, 'success.html')
+        email = "Utilisateur non connecté"
+    return render(request, 'success.html', {'email': email})
 
 
 def cancel(request):
