@@ -5,9 +5,11 @@ FROM python:${PYTHON_VERSION}
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install psycopg2 dependencies.
+# install psycopg2 & mysql dependencies.
 RUN apt-get update && apt-get install -y \
     libpq-dev \
+    pkg-config \
+    libmariadb-dev \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
@@ -24,4 +26,4 @@ COPY . /code
 
 EXPOSE 8000
 
-CMD ["gunicorn","--bind",":8000","--workers","2","Studi.wsgi"]
+CMD ["gunicorn","--bind",":8000","--workers","2","/Studi_/Studi/wsgi.py"]

@@ -83,9 +83,13 @@ DATABASES = {
         'DRIVER': 'pymysql',
         'NAME': 'jo_app',
         'USER': 'root',
+        #'USER': 'postgres',
         'PASSWORD': 'Jo2024@',
+        #'PASSWORD' : 'zy1PRm6KybZXa7i',
         'HOST': '127.0.0.1',
+        #'HOST': 'studidb.internal',
         'PORT': '3306',
+        #'PORT': '5432',
     },
     'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',

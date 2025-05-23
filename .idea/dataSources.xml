@@ -8,5 +8,13 @@
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/jo_app</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="zy1PRm6KybZXa7i@studidb.flycast:5432@studidb.internal" uuid="766c01e1-c92b-4ebb-a0de-af6785fd054a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://studidb.internal/zy1PRm6KybZXa7i@studidb.flycast:5432</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
